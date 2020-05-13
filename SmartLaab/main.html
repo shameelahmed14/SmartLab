@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> SmartLab </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link rel="icon" type="image/x-icon" href="icon.png">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<!--  <script  src="log.html"></script>  -->
+<style>
+
+body { 
+    background-image: url(back.jpg);
+  margin: 0;
+ background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: rgb( 32, 198, 212 );
+  padding: 90px 10px;
+  transition: 0.4s;
+  /*position: fixed;*/
+  width: 100%;
+  top: 0;
+  z-index: 99;
+}
+
+#navbar a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+
+}
+
+#navbar #logo {
+  font-size: 35px;
+  font-weight: bold;
+  transition: 0.4s;
+  float: right;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+#navbar-right {
+  float: left;
+}
+
+@media screen and (max-width: 580px) {
+  #navbar {
+    padding: 20px 10px !important;
+  }
+  #navbar a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  #navbar-right {
+    float: none;
+  }
+}
+
+.city {display:none}
+
+ input
+{
+  width:100%;
+  margin-bottom: 20px; 
+}
+input[type="text"]
+{
+  border: thick;
+  border-bottom: 1px solid  #17e3ea ;
+  background: transparent;
+  outline:none;
+  height:40px;
+  color:rgb(0,0,0);
+  font-size: 16px;
+  text-decoration-color: rgb(0,11,12);
+  
+}
+::placeholder
+{
+  color:rgb(0, 11, 12); 
+}
+
+ input[type="button"]
+{
+  margin: 10px;
+  width: 70px;
+  height: 30px;
+  color:#fff;
+  font-size:16px;
+  background: rgb(255,38,126);
+  cursor:pointer;
+  border-radius:20px;
+}
+
+
+ input[type="button"]:hover
+{
+  background: #efed40;
+  color: #262626;
+}
+
+.loginBox
+{
+  position:absolute;
+  top:75%;
+  left:75%;
+  transform: translate(5%, 15%);
+  width:250;
+  height:150px;
+  padding:80px 40px;
+  box-sizing: border-box;
+  background:rgba(0,0,0,0.1) ;
+  
+}
+
+
+
+
+h2
+{
+  margin:0;
+  padding:0 0 20px;
+  color: #DAF7A6 ;
+  text-align:center;
+} 
+
+
+
+.loginBox p
+{
+  padding:0;
+  margin:0;
+  font-weight:bold;
+  color:#fff;
+  
+} 
+
+
+
+.loginBox input[type="submit"]
+{
+  margin: 10px;
+  border:none;
+  outline:none;
+  height: 40px;
+  color:#fff;
+  font-size:16px;
+  background: rgb(255,38,126);
+  cursor:pointer;
+  border-radius:20px;
+  text-align: center;
+}
+
+
+.loginBox input[type="submit"]:hover
+{
+  background: #efed40;
+  color: #262626;
+}
+ 
+ 
+ 
+
+.loginBox a
+{
+  color: #fff;
+  font-size:14px;
+  font-weight:bold;
+} 
+
+
+::placeholder
+{
+  color:rgba(255,255,255,0.5); 
+}
+
+
+.loginBox2
+{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width:350px;
+  height:300px;
+  padding:80px 40px;
+  box-sizing: border-box;
+  background:rgba(0,0,0,0.5) ;
+  
+}
+
+
+
+
+h2
+{
+  margin:0;
+  padding:0 0 20px;
+  color: #DAF7A6 ;
+  text-align:center;
+} 
+
+
+
+.loginBox2 p
+{
+  padding:0;
+  margin:0;
+  font-weight:bold;
+  color:#fff;
+  
+} 
+
+
+
+.loginBox2 input[type="submit"]
+{
+  margin: 10px;
+  border:none;
+  outline:none;
+  height: 40px;
+  color:#fff;
+  font-size:16px;
+  background: rgb(255,38,126);
+  cursor:pointer;
+  border-radius:20px;
+  text-align: center;
+}
+
+
+.loginBox2 input[type="submit"]:hover
+{
+  background: #efed40;
+  color: #262626;
+}
+ 
+ 
+ 
+
+.loginBox2 a
+{
+  color: #fff;
+  font-size:14px;
+  font-weight:bold;
+} 
+
+
+::placeholder
+{
+  color:rgba(255,255,255,0.5); 
+}
+
+
+
+/*full page model*/
+    .modal-dialog-full-width {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width:none !important;
+
+    }
+
+    .modal-content-full-width  {
+        height: auto !important;
+        min-height: 100% !important;
+        border-radius: 0 !important;
+        background-color: #ececec !important 
+    }
+
+    .modal-header-full-width  {
+        border-bottom: 1px solid #9ea2a2 !important;
+    }
+
+    .modal-footer-full-width  {
+        border-top: 1px solid #9ea2a2 !important;
+    }
+
+     .searchbar{
+    margin-bottom: 50px;
+    margin-top: 50px;
+    height: 60px;
+    background-color: #d3dbdf;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    /*color: rgba(12,12,12,0.5);*/
+    border: 0;
+    outline: 0;
+    background: black;
+    width: 0;
+    color: black;
+    text-decoration-color: rgb(12,12,12);
+    caret-color:transparent;
+    line-height: 30px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:red;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_icon{
+    background: white;
+    color: #e74c3c;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+    }
+
+
+.tb
+{
+    display: table;
+    width: 100%;
+}
+
+.td
+{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+input, button
+{
+    color: #fff;
+    font-family: Nunito;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+#cover
+{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: 550px;
+    padding: 35px;
+    margin: -83px auto 0 auto;
+    background-color: #ff7575;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+    transform: scale(0.6);
+}
+
+
+input[type="text"]
+{
+    width: 100%;
+    height: 80px;
+    font-size: 60px;
+    line-height: 1;
+}
+
+input[type="text"]::placeholder
+{
+    color: #e16868;
+}
+
+#s-cover
+{
+    width: 1px;
+    padding-left: 35px;
+}
+
+.button
+{
+    position: relative;
+    display: block;
+    width: 84px;
+    height: 96px;
+    cursor: pointer;
+}
+
+#s-circle
+{
+    position: relative;
+    top: -8px;
+    left: 0;
+    width: 43px;
+    height: 43px;
+    margin-top: 0;
+    border-width: 15px;
+    border: 15px solid #fff;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: 0.5s ease all;
+}
+
+.button span
+{
+    position: absolute;
+    top: 68px;
+    left: 43px;
+    display: block;
+    width: 45px;
+    height: 15px;
+    background-color: transparent;
+    border-radius: 10px;
+    transform: rotateZ(52deg);
+    transition: 0.5s ease all;
+}
+
+.button span:before, button span:after
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 45px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    transform: rotateZ(0);
+    transition: 0.5s ease all;
+}
+
+#s-cover:hover #s-circle
+{
+    top: -1px;
+    width: 67px;
+    height: 15px;
+    border-width: 0;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+#s-cover:hover span
+{
+    top: 50%;
+    left: 56px;
+    width: 25px;
+    margin-top: -9px;
+    transform: rotateZ(0);
+}
+
+#s-cover:hover button span:before
+{
+    bottom: 11px;
+    transform: rotateZ(52deg);
+}
+
+#s-cover:hover button span:after
+{
+    bottom: -11px;
+    transform: rotateZ(-52deg);
+}
+#s-cover:hover button span:before, #s-cover:hover button span:after
+{
+    right: -6px;
+    width: 40px;
+    background-color: #fff;
+}
+
+footer {
+    font-size: .8rem;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.output {
+    background: #eee;
+    position: relative;
+}
+
+</style>
+</head>
+<body>
+
+   <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+  
+  <!-- <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+ 
+
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDmaO6x3OMLHgTAEilb-DYFMEvjD_bup0U",
+    authDomain: "smartlab-d7a66.firebaseapp.com",
+    databaseURL: "https://smartlab-d7a66.firebaseio.com",
+    projectId: "smartlab-d7a66",
+    storageBucket: "smartlab-d7a66.appspot.com",
+    messagingSenderId: "296299723006",
+    appId: "1:296299723006:web:f008a6cc99dff730854daf",
+    measurementId: "G-G4Z1BELN8D"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+const params = location.search.slice(1).split('&').reduce((acc, s) => {
+  const [k, v] = s.split('=')
+  return Object.assign(acc, {[k]: v})
+}, {});
+ var phone = params.phone;
+ var hid = params.hid;
+
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();  
+
+
+
+var dob;
+
+
+//to count age 
+function getAge() {
+    var today = new Date();
+    
+    firebase.database().ref('/Users/'+phone).once('value',function(snapshot){
+    snapshot.forEach(function(childSnapshot){
+      var k = childSnapshot.val();
+   
+      dob = k.dob;
+      //console.log(dob);
+          var birthDate = new Date(k);
+     age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age = age - 1;
+        console.log(age)
+
+      return age;
+
+    }
+          });
+  });
+   
+}
+
+ var age = getAge();
+
+
+//  function genderRetrieve(){
+// var gender;
+//       firebase.database().ref('/Users/'+phone).once('value',function(snapshot){
+//     snapshot.forEach(function(childSnapshot){
+//       var k = childSnapshot.val();
+//      gender = k.gender;
+     
+//       return gender;
+//     });
+//   });
+
+//  }
+// var genderOfPerson = genderRetrieve().toString();
+// console.log(genderOfPerson)
+
+  function createPDFBloodRoutine() {
+  var hb = document.getElementById("Hb").value;
+    var thb = document.getElementById("THb").value;
+    //var date = new Date.now ();
+    //var imageData ="download (2)(1).png";
+      var nt = document.getElementById("nt").value;
+    var lym = document.getElementById("lym").value;
+
+  var es = document.getElementById("es").value;
+    var mono = document.getElementById("mono").value;
+
+  var bs = document.getElementById("bs").value;
+    var esr = document.getElementById("esr").value;
+  var rbs = document.getElementById("rbs").value;
+    var bu = document.getElementById("bu").value;
+
+    var sc = document.getElementById("sc").value;
+     var tb = document.getElementById("tb").value;
+     var db = document.getElementById("db").value;
+     var ib = document.getElementById("ib").value;
+   // var labNo = document.getElementById("").value;
+
+var Name = document.getElementById("name").value;
+var Doctor = document.getElementById("Doctor").value;
+var Gender = document.getElementById("gender").value;
+
+
+    if (Name == "" || Doctor == "" || Gender == ""  || hb == "" || thb == "" || nt == "" || lym == "" || es == "" || mono == "" || bs == "" || esr == "" || rbs == "" || bu == "" || sc == "" || tb == "" || db == "" || ib == "") {
+      alert("plz enter the values");
+      
+    }
+
+    else{
+
+      var doc =  new jsPDF();
+      doc.setFontSize(15);
+      //doc.addImage(imageData, 'png', 0, 10, 20, 20, 'icon', 'NONE', 0);
+      //
+      doc.setFontStyle("italic");
+      doc.setTextColor(199, 0, 57 );
+      doc.text("SOME DIAGNOSTIC CENTRE ",65,10);
+      doc.setFontSize(12);
+      doc.text("(somewhere -XXXXX5)",70,20);
+      doc.text("(Ph:08250-XXXX05 ,Fax-08250-XXXX1,E-mail:Someone@gmail.com,website: www.somecentre.org)",10,26);
+      //doc.setFontStyle();
+      //doc.setCreationDate(date);
+      //doc.text(date,10,20);
+      //doc.setLineWidth(1);
+      doc.setDrawColor( 14, 92, 247 );
+      doc.line(0, 30, 250, 30, 'DF');
+
+      //doc.setLineWidth(1);
+      doc.setDrawColor( 14, 92, 247 );
+      doc.line(0, 31, 250, 31, 'DF');
+
+
+      
+
+      doc.setFontSize(13);
+      //doc.setDrawColor(247, 244, 244);
+      doc.setDrawColor( 76, 132, 245 );
+      doc.rect(10, 43, 180, 36, 'S');
+      doc.setTextColor(0, 1, 3 );
+      doc.setFontStyle('normal');
+      doc.setFontSize(12);
+       doc.text("Lab No.",12,52);
+      doc.text(":",42,52);
+
+       doc.text("Name",12,58);
+      doc.text(":",42,58);
+         doc.text(Name,46,58);
+
+
+      doc.text("Age",12,64);
+      doc.text(":",42,64);
+     doc.text(age.toString(),46,64);
+
+
+ 
+  doc.text("Gender",12,70);
+       doc.text(":",42,70);
+        doc.text(Gender,46,70);
+ 
+      
+
+        doc.text("Doctor Name",12,76);
+      doc.text(":",42,76);
+       doc.text(Doctor,46,76);
+
+
+       doc.text("Date",134,52);
+       doc.text(":",146,52);
+        doc.text(date,148,52);
+
+      
+      doc.addFont('ArialMS', 'Arial', 'normal');
+    doc.setFont('Arial');
+    doc.setFontStyle('bold');
+      doc.text("LABORATORY REPORT",70,39);
+
+      doc.setDrawColor( 76, 132, 245 );
+    doc.rect(10, 82, 180, 8, 'S');
+    doc.text("Test Conducted ",12,87);
+    doc.text("Method Result",80,87);
+      doc.text("Unit",120,87);
+      doc.text("Reference Range",150,87);
+
+    doc.setDrawColor(17, 2, 4);
+      doc.text("BLOOD ROUTINE ",10,95);
+      
+      doc.setFontStyle('normal');
+      doc.setFontSize(11);
+      doc.text("Haemoglobin",10,105);
+      doc.text(":",60,105);
+      doc.text(hb,80,105);
+      doc.text("gm%",120,105);
+      doc.text("12-14gm%",150,105);
+
+
+      doc.text("Total WBC Count",10,115);
+      doc.text(":",60,115);
+      doc.text(thb,80,115);
+    doc.text("/cumm",120,115);
+      doc.text("4,000-11,000/cumm",150,115);      //createPDFDiff();
+
+
+
+
+
+
+
+//diffential count
+    doc.setFontStyle('bold');
+    doc.text("DIFFERENTIAL COUNT TEST",10,125);
+    doc.setFontStyle('normal');
+      doc.text("Neutrophils ",10,135);
+      doc.text(":",60,135);
+      doc.text(nt,80,135);
+      doc.text("%",120,135);
+      doc.text("40-75%",150,135);
+
+      doc.text("Lymphocytes ",10,145);
+      doc.text(":",60,145);
+      doc.text(lym,80,145);
+      doc.text("%",120,145);
+      doc.text("20-45%",150,145);
+
+      
+      doc.text("Eosinophils ",10,155);
+      doc.text(":",60,155);
+      doc.text(es,80,155);
+      doc.text("%",120,155);
+      doc.text("1-6%",150,155);
+
+
+      doc.text("Monocytes ",10,165);
+      doc.text(":",60,165);
+      doc.text(mono,80,165);
+      doc.text("%",120,165);
+      doc.text("2-10%",150,165);
+
+      doc.text("Basophils ",10,175);
+      doc.text(":",60,175);
+      doc.text(bs,80,175);
+      doc.text("%",120,175);
+      doc.text("0-1%",150,175);
+
+      doc.text("ESR ",10,185);
+      doc.text(":",60,185);
+      doc.text(esr,80,185);
+      doc.text("mm/1hr",120,185);
+      doc.text("0-5 mm/1hr",150,185);
+
+      doc.text("Random Blood Sugar ",10,195);
+      doc.text(":",60,195);
+      doc.text(rbs,80,195);
+      doc.text("mg/dl",120,195);
+      doc.text("60-160 mg/dl",150,195);
+
+      doc.text("Blood Urea ",10,205);
+      doc.text(":",60,205);
+      doc.text(bu,80,205);
+      doc.text("mg/dl",120,205);
+      doc.text("15-45 mg/dl",150,205);
+
+      //clinical bio chemistry
+      doc.setFontStyle('bold');
+      doc.text("CLINICAL BIOCHEMISTRY",10,215);
+      doc.setFontStyle('normal');
+
+      doc.text(" Serum Creatinine",10,225);
+      doc.text(":",60,225);
+      doc.text(sc,80,225);
+      doc.text("mg/dl",120,225);
+      doc.text("0.6-1.5mg/dl",150,225);
+
+      doc.text("Total Bilirubin ",10,235);
+      doc.text(":",60,235);
+      doc.text(tb,80,235);
+      doc.text("mg/dl",120,235);
+      doc.text("0-1 mg/dl ",150,235);
+
+      doc.text("Direct Bilirubin",10,245);
+      doc.text(":",60,245);
+      doc.text(db,80,245);
+      doc.text("mg/dl",120,245);
+      doc.text("0-0.35 mg/dl",150,245);
+
+      doc.text("Indirect Bilirubin ",10,255);
+      doc.text(":",60,255);
+      doc.text(ib,80,255);
+      doc.text("mg/dl",120,255);
+      doc.text("0.2-0.65 mg/dl",150,255);
+
+
+
+
+
+     
+
+  doc.save(phone+'_BT_'+date+'.pdf');
+     
+  //        var postData = {
+  //   date : date
+  // };
+  // var updates = {};
+  // updates['/Users/'+phone+'/'] = postData;
+  // firebase.database().ref().push(updates);
+
+
+// var newchild = newchild.push({
+// date: today
+// });
+
+
+ 
+}
+}
+ function createPDFUrine() {
+  var al = document.getElementById("al").value;
+    var su = document.getElementById("su").value;
+    //var date = new Date.now ();
+    //var imageData ="download (2)(1).png";
+      var rbc = document.getElementById("rbc").value;
+    var pus = document.getElementById("pus").value;
+
+  var ec = document.getElementById("ec").value;
+    var ca = document.getElementById("ca").value;
+
+  var cry = document.getElementById("cry").value;
+    var bac = document.getElementById("bac").value;
+  
+
+//var labNo = document.getElementById("").value;
+var Name = document.getElementById("nameU").value;
+var Doctor = document.getElementById("DoctorU").value;
+var Gender = document.getElementById("genderU").value
+
+
+    if (Name == "" || Doctor == "" || Gender == ""  || al == "" || su == "" || rbc == "" || pus == "" || ec == "" || ca == "" || cry == "" || bac == "") {
+      alert("Please enter the values");
+      
+    }
+
+    else{
+
+      var doc =  new jsPDF();
+      doc.setFontSize(15);
+      //doc.addImage(imageData, 'png', 0, 10, 20, 20, 'icon', 'NONE', 0);
+      //
+      doc.setFontStyle("italic");
+      doc.setTextColor(199, 0, 57 );
+      doc.text("SOME DIAGNOSTIC CENTRE ",65,10);
+      doc.setFontSize(12);
+      doc.text("(somewhere -XXXXX5)",70,20);
+      doc.text("(Ph:08250-XXXX05 ,Fax-08250-XXXX1,E-mail:Someone@gmail.com,website: www.somecentre.org)",10,26);
+      //doc.setFontStyle();
+      //doc.setCreationDate(date);
+      //doc.text(date,10,20);
+      //doc.setLineWidth(1);
+      doc.setDrawColor( 14, 92, 247 );
+      doc.line(0, 30, 250, 30, 'DF');
+
+      //doc.setLineWidth(1);
+      doc.setDrawColor( 14, 92, 247 );
+      doc.line(0, 31, 250, 31, 'DF');
+
+
+      
+
+      doc.setFontSize(13);
+      //doc.setDrawColor(247, 244, 244);
+      doc.setDrawColor( 76, 132, 245 );
+      doc.rect(10, 43, 180, 36, 'S');
+      doc.setTextColor(0, 1, 3 );
+      doc.setFontStyle('normal');
+      doc.setFontSize(12);
+      doc.text("Lab No.",12,52);
+      doc.text(":",42,52);
+
+       doc.text("Name",12,58);
+      doc.text(":",42,58);
+         doc.text(Name,46,58);
+
+
+      doc.text("Age",12,64);
+      doc.text(":",42,64);
+     doc.text(age.toString(),46,64);
+
+
+ 
+  doc.text("Gender",12,70);
+       doc.text(":",42,70);
+        doc.text(Gender,46,70);
+ 
+      
+
+        doc.text("Doctor Name",12,76);
+      doc.text(":",42,76);
+       doc.text(Doctor,46,76);
+
+
+       doc.text("Date",134,52);
+       doc.text(":",146,52);
+        doc.text(date,148,52);
+
+
+      doc.addFont('ArialMS', 'Arial', 'normal');
+    doc.setFont('Arial');
+    doc.setFontStyle('bold');
+      doc.text("LABORATORY REPORT",70,39);
+
+      doc.setDrawColor( 76, 132, 245 );
+    doc.rect(10, 82, 180, 8, 'S');
+    doc.text("Test Conducted ",12,87);
+    doc.text("Method Result",80,87);
+      doc.text("Unit",120,87);
+      doc.text("Reference Range",150,87);
+
+    doc.setDrawColor(17, 2, 4);
+      doc.text("URINE ROUTINE ",10,95);
+      
+      doc.setFontStyle('normal');
+      doc.setFontSize(11);
+      doc.text("Albumin",10,105);
+      doc.text(":",60,105);
+      doc.text(al,80,105);
+      doc.text("g/dL",120,105);
+      doc.text("3.4-5.4 g/dL",150,105);
+
+
+      doc.text("Sugar",10,115);
+      doc.text(":",60,115);
+      doc.text(su,80,115);
+    // doc.text("/cumm",120,115);
+    //   doc.text("4,000-11,000/cumm",150,115);      //createPDFDiff();
+
+      doc.text("RBC ",10,125);
+      doc.text(":",60,125);
+      doc.text(rbc,80,125);
+      doc.text("/HPF",120,125);
+     // doc.text("40-75%",150,125);
+
+      doc.text("Pus Cells ",10,135);
+      doc.text(":",60,135);
+      doc.text(pus,80,135);
+      doc.text("/HPF",120,135);
+      doc.text("1-2/HPF",150,135);
+
+      
+      doc.text("Epithelial Cells ",10,145);
+      doc.text(":",60,145);
+      doc.text(ec,80,145);
+      doc.text("/HPF",120,145);
+      //doc.text("1-6%",150,145);
+
+
+      doc.text("Casts ",10,155);
+      doc.text(":",60,155);
+      doc.text(ca,80,155);
+      //doc.text("%",120,155);
+      //doc.text("2-10%",150,155);
+
+      doc.text("Crystals ",10,165);
+      doc.text(":",60,165);
+      doc.text(cry,80,165);
+    //  doc.text("%",120,165);
+     // doc.text("0-1%",150,165);
+
+      doc.text("Bacteria ",10,175);
+      doc.text(":",60,175);
+      doc.text(bac,80,175);
+     // doc.text("mm/1hr",120,175);
+     // doc.text("0-5 mm/1hr",150,175);
+
+     
+
+
+
+
+  doc.save(phone+'_UT_'+date+'.pdf');
+     
+  //        var postData = {
+  //   date : date
+  // };
+  // var updates = {};
+  // updates['/Users/'+phone+'/'] = postData;
+  // firebase.database().ref().push(updates);
+
+
+// var newchild = newchild.push({
+// date: today
+// });
+
+
+ 
+}
+}
+function save(){
+   
+   var test = document.getElementById("test").value;
+//    var submit = document.getElementById("submit");
+//   //      var rootRef = firebase.database().ref();
+//   // var storesRef = rootRef.child('Users/'+phone+'/pdf');
+//   // var newStoreRef = storesRef.set({
+//   //   date: date,
+//   //   BloodTest: file
+//   // });
+
+//   submit.addEventListener('change',function(e){
+//       for (var i = 0;i< e.target.files.length;i++) {
+
+//         var pdfFile = e.target.files[i];
+//         console.log(pdfFile);
+//          var storageRef = firebase.storage().ref(phone+'/'+pdfFile.name);
+//          var task = storageRef.put(pdfFile);
+
+//          task.on('state_changed',function progress(snapshot){
+
+//           var percentage = snapshot.bytesTransferred/snapshot.totalBytes * 100;
+//           console.log(percentage+"uploaded");
+
+//           switch(snapshot.state){
+//             case firebase.storage.TaskState.PAUSED:
+//             console.log("uploading is paused");
+//             break;
+//             case firebase.storage.TaskState.RUNNING:
+//             console.log("uploading is running");
+//             break;
+//           }
+
+//          });
+
+//       }
+//   });
+//location.reload(); 
+if (test == "BT") {
+const storageRef = firebase.storage().ref(phone+"/BloodTest");
+
+const file = document.querySelector('#file').files[0];
+
+const name = file.name;
+
+const metadata = {
+  contentType:file.type
+}
+
+const task = storageRef.child(name).put(file,metadata);
+// console.log("success");
+
+
+//var urls = storageRef.child(name).getDownloadURL();
+//storageRef.child(name).getDownloadURL().then(function(url){this.url = url})
+const spaceRef = storageRef.child(name);
+spaceRef.getDownloadURL().then(function(url){
+  var urls = url
+  console.log(  urls);
+//  var newref = firebase.database().ref('Users/'+phone+'/pdf').push().set({
+//     date:date,
+//     link: urls
+// });
+
+  
+       var rootRef = firebase.database().ref();
+   var storesRef = rootRef.child('Users/'+phone);
+   var newStoreRef = storesRef.child('/BloodTest/'+date).set(urls);
+   var adminref = rootRef.child('Admin/'+hid+'/Reports/'+phone+'/'+date).set(urls);
+
+}); 
+}
+else{
+  const storageRef = firebase.storage().ref(phone+"/UrineTest");
+
+const file = document.querySelector('#file').files[0];
+
+const name = file.name;
+
+const metadata = {
+  contentType:file.type
+}
+
+const task = storageRef.child(name).put(file,metadata);
+// console.log("success");
+
+
+//var urls = storageRef.child(name).getDownloadURL();
+//storageRef.child(name).getDownloadURL().then(function(url){this.url = url})
+const spaceRef = storageRef.child(name);
+spaceRef.getDownloadURL().then(function(url){
+  var urls = url
+  console.log(  urls);
+//  var newref = firebase.database().ref('Users/'+phone+'/pdf').push().set({
+//     date:date,
+//     link: urls
+// });
+
+  
+       var rootRef = firebase.database().ref();
+   var storesRef = rootRef.child('Users/'+phone);
+   var newStoreRef = storesRef.child('/UrineTest/'+date).set(urls);
+   var adminref = rootRef.child('Admin/'+hid+'/Reports/'+phone+'/'+date).set(urls);
+
+}); 
+}
+
+// location.reload(); 
+
+
+// task.then(snapshots => snapshots.storageRef.getDownloadURL()).then(url =>{
+//   console.log(url)
+//   alert("Uploaded")
+// })
+  // var uploadFile = storageRef.child(phone+'/'+file);
+
+  //     firebase.database().ref('/Users/'+phone).once('value',function(snapshot){
+  //   snapshot.forEach(function(childSnapshot){
+  //     var k = childSnapshot.val();
+  //     console.log(k);
+  //   });
+  // });
+}
+
+
+</script>
+
+<div id="navbar">
+
+  <a href="#default" id="logo">SmartLab</a>
+
+
+
+
+
+  
+  <right></right>
+  <div id="navbar-right" class="active" >
+    <button id="blood" onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Blood Test</button>
+     <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-black">Urine Test</button>
+       <button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-black">Sputum Test</button>
+         <button onclick="document.getElementById('id04').style.display='block'" class="w3-button w3-black">Stool Test</button> 
+
+ 
+  </div></div>
+
+
+<!-- <div id="cover">
+    <div class="tb">
+      <div class="td"><input type="text" id="searchId" placeholder="Search" required></div>
+      <div class="td" id="s-cover">
+        <button class="button" id="searchbar" type="submit" onclick="search();">
+          <div id="s-circle"></div>
+          <span></span>
+        </button>
+      </div>
+    </div>
+</div>
+<script>
+function search(){
+
+  var searchId = document.getElementById("searchId").value;
+  var rootsearch = firebase.database().ref('Admin/'+hid+'/Reports/'+searchId);
+  rootsearch.once("value")
+.then(function(snapshot) {
+snapshot.forEach(function(childSnapshot) {
+  var key = childSnapshot.key;
+  var url = childSnapshot.val();
+  console.log(url);
+   //var urlPath='http://localhost/POSkill/skillshow.aspx?user_id='+url;
+  // document.write('<iframe id="showskill" scrolling="yes" height="1000px" width ="800px" src="'+urlPath+'"></iframe>');
+  document.write('<object type="application/pdf"  data="'+url+'"></object>');
+});
+});
+}
+</script> -->
+
+  <div id="id01" class="w3-modal" >
+ <div class="w3-modal-content w3-card-4 w3-animate-zoom" >
+  <header class="w3-container w3-blue"> 
+   <span onclick="document.getElementById('id01').style.display='none'" 
+   class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
+   <h2>Blood Test</h2>
+  </header>
+
+  <div class="w3-bar w3-border-bottom">
+   <button id="bloodroutine" class="tablink w3-bar-item w3-button" onclick="openCity(event, 'India')">Patient Details</button>
+
+   <button id="bloodroutine" class="tablink w3-bar-item w3-button" onclick="openCity(event, 'London')">Blood Routine</button>
+   <button id="diff" class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Paris')">Differential Count</button>
+   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Tokyo')">Clinical Biochemistry</button>
+    <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'newyork')">Haematology</button>
+     <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'mumbai')">Microbiology</button>
+  </div>
+
+
+  <div id="India" class="w3-container city">
+   <h1>Patient Details</h1>
+
+
+     Name:<input type="text" id="name" name = "name" placeholder="Enter Name of Patient " ><br>
+     Gender:<input type="text" id="gender" name = "gender" placeholder="Enter Gender of Patient " ><br>
+
+     Doctor Name:<input type="text" id="Doctor" name = "Doctor" placeholder="Enter the Doctor Name " >
+     
+  </div>
+
+
+  <div id="London" class="w3-container city">
+   <h1>Blood Routine</h1>
+
+
+     Haemoglobin:<input type="text" id="Hb" name = "Hb" placeholder="Enter HAEMOGLOBIN value " ><br>
+
+     Total WBC Count:<input type="text" id="THb" name = "THb" placeholder="Enter the total WBC Count" >
+     
+  </div>
+
+  <div id="Paris" class="w3-container city">
+   <h1>Differential Count</h1>
+    Neutrophils :<input type="text" id="nt" name = "nt" placeholder="Enter Neutrophils value " ><br>
+    Lymphocytes :<input type="text" id="lym" name = "lym" placeholder="Enter Lymphocytes value " ><br>
+    Eosinophils :<input type="text" id="es" name = "es" placeholder="Enter Eosinophils value " ><br>
+    Monocytes   :<input type="text" id="mono" name = "mono" placeholder="Enter Monocytes value " ><br>
+    Basophils   :<input type="text" id="bs" name = "bs" placeholder="Enter Basophils value " ><br>
+    ESR         :<input type="text" id="esr" name = "esr" placeholder="Enter ESR value " ><br>
+    Random Blood Sugar:<input type="text" id="rbs" name = "rbs" placeholder="Enter Random Blood Sugar value " ><br>
+    Blood Urea  :<input type="text" id="bu" name = "bu" placeholder="Enter Blood Urea value " ><br>
+   <!--  <input type="button" value="Save" onclick="createPDFDiff()" /> -->
+  </div>
+
+  <div id="Tokyo" class="w3-container city">
+   <h1>Clinical Biochemistry</h1>
+    Serum Creatinine :<input type="text" id="sc" name = "sc" placeholder="Enter Serum Creatinine value " ><br>
+    Total Bilirubin :<input type="text" id="tb" name = "tb" placeholder="Enter Total Bilirubin value " ><br>
+    Direct Bilirubin:<input type="text" id="db" name = "db" placeholder="Enter Direct Bilirubin value " ><br>
+    Indirect Bilirubin:<input type="text" id="ib" name = "ib" placeholder="Enter Indirect Bilirubin value " ><br>
+  </div>
+
+
+<div id="newyork" class="w3-container city">
+   <h1>Haematology</h1>
+    Platelet Count :<input type="text" id="pc" name = "pc" placeholder="Enter Platelet Count value " ><br>
+    Malaria Parasites :<input type="text" id="mp" name = "mp" placeholder="Enter Malaria Parasites value " ><br>
+
+  </div>
+
+<div id="mumbai" class="w3-container city">
+   <h1>Microbiology</h1>
+    Dengue NS1 :<input type="text" id="dns1" name = "dns1" placeholder="Enter Dengue NS1 value " ><br>
+    Dengue IgG :<input type="text" id="dig" name = "dig" placeholder="Enter Dengue IgG value " ><br>
+    Dengue IgM :<input type="text" id="digm" name = "digm" placeholder="Enter Dengue IgM value " ><br>
+
+  </div>
+
+
+
+  <div class="w3-container w3-light-grey w3-padding">
+    <!--<input type="submit" id="submit" name = "submit" value="Submit" onclick="writeData()" >-->
+<input type="button" value="Save" onclick="createPDFBloodRoutine()" />
+   <button class="w3-button w3-right w3-white w3-border" 
+   onclick="document.getElementById('id01').style.display='none'">Close</button>
+  </div>
+ </div>
+</div>
+
+
+
+
+
+  <div id="id02" class="w3-modal">
+ <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+  <header class="w3-container w3-blue"> 
+   <span onclick="document.getElementById('id02').style.display='none'" 
+   class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
+   <h2>Urine Test</h2>
+  </header>
+
+  <div class="w3-bar w3-border-bottom">
+   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'karnataka')">Patient Datails</button>
+
+   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'pune')">Urine Routine</button>
+  
+  </div>
+
+ <div id="karnataka" class="w3-container city">
+   <h1>Patient Details</h1>
+
+
+     Name:<input type="text" id="nameU" name = "nameU" placeholder="Enter Name of Patient " ><br>
+     Gender:<input type="text" id="genderU" name = "gendeUr" placeholder="Enter Gender of Patient " ><br>
+
+     Doctor Name:<input type="text" id="DoctorU" name = "DoctorU" placeholder="Enter the Doctor Name " >
+     
+  </div>
+
+  <div id="pune" class="w3-container city">
+   <h1> Urine Routine </h1>
+    Albumin : <input type="text" id="al" name = "al" placeholder="Enter Albumin value " ><br>
+    Sugar   : <input type="text" id="su" name = "su" placeholder="Enter Sugar value " ><br>
+    RBC     : <input type="text" id="rbc" name = "rbc" placeholder="Enter RBC value " ><br>
+    Pus Cells:<input type="text" id="pus" name = "pus" placeholder="Enter Pus Cells value " ><br>
+    Epithelial Cells:<input type="text" id="ec" name = "ec" placeholder="Enter Epithelial Cells value " ><br>
+    Casts   :<input type="text" id="ca" name = "ca" placeholder="Enter Casts value " ><br>
+    Crystals :<input type="text" id="cry" name = "cry" placeholder="Enter Crystals value " ><br>
+    Bacteria :<input type="text" id="bac" name = "bac" placeholder="Enter Bacteria value " ><br>
+  </div>
+
+  
+
+  <div class="w3-container w3-light-grey w3-padding">
+    <!-- <input type="submit" id="submit1" name = "submit" value="Submit"  > -->
+    <input type="button" value="Save" onclick="createPDFUrine()" />
+   <button class="w3-button w3-right w3-white w3-border" 
+   onclick="document.getElementById('id02').style.display='none'">Close</button>
+  </div>
+ </div>
+  
+</div>
+
+</div>
+
+
+<script>
+
+
+  document.getElementsByClassName("tablink")[0].click();
+
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].classList.remove("w3-light-grey");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.classList.add("w3-light-grey");
+}
+
+
+function log(){
+    window.location.href = "log.html";
+}
+</script>
+<div class="loginBox">
+ 
+<button id="modalActivate" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalPreview">
+    Upload PDF
+</button>
+<button id="modalActivate" type="button" class="btn btn-danger" data-toggle="modal" onclick="log()">
+   Logout
+</button>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade right" id="exampleModalPreview" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+    <div class="modal-dialog-full-width modal-dialog momodel modal-fluid" role="document">
+        <div class="modal-content-full-width modal-content ">
+            <div class=" modal-header-full-width   modal-header text-center">
+                <!-- <h5 class="modal-title w-100" id="exampleModalPreviewLabel">UPLOAD PDF</h5> -->
+                <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                    <span style="font-size: 1.3em;" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="loginBox2">
+          <h2>Upload a report</h2>
+            <!-- <input type="file" id="fileButton"/> -->
+            <p>Test:</p>
+            <select  id="test" title="Test"> 
+              <option value="BT">Boold Test</option>
+              <option value="UT">Urine Test</option>
+
+            </select><br>
+            <p>Upload Report:</p>
+  <input type="file" id="file" name="file" placeholder="file" multiple="" >
+  <br>
+  <input type="submit" name="submit" id="submit" value="submit" onclick="save();" placeholder="submit">
+</div>
+           
+        </div>
+    </div>
+</div>
+
+<!-- <div class="modal fade right" id="exampleModalPreview" tabindex="-1" role="dialog" aria-labelledby="list" aria-hidden="true">
+    <div class="modal-dialog-full-width modal-dialog momodel modal-fluid" role="document">
+        <div class="modal-content-full-width modal-content ">
+            <div class=" modal-header-full-width   modal-header text-center">
+                <h5 class="modal-title w-100" id="list">UPLOAD PDF</h5>
+                <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                    <span style="font-size: 1.3em;" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+ 
+           
+        </div>
+    </div>
+</div> -->
+</body>
+</html>
