@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+     <title> SmartLab </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link rel="icon" type="image/x-icon" href="icon.png">
+  
+    <link rel="stylesheet" href="stylecreate.css">
+  </head>
+  <body>
+
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+  
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+
+
+<script>
+ 
+  var firebaseConfig = {
+    apiKey: "AIzaSyDmaO6x3OMLHgTAEilb-DYFMEvjD_bup0U",
+    authDomain: "smartlab-d7a66.firebaseapp.com",
+    databaseURL: "https://smartlab-d7a66.firebaseio.com",
+    projectId: "smartlab-d7a66",
+    storageBucket: "smartlab-d7a66.appspot.com",
+    messagingSenderId: "296299723006",
+    appId: "1:296299723006:web:f008a6cc99dff730854daf",
+    measurementId: "G-G4Z1BELN8D"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+function save() {
+ var hospitalid =  document.getElementById("hospitalid").value;
+
+ var hospital =  document.getElementById("hospital").value;
+
+var desc =  document.getElementById("desc").value;
+      
+var adminid =  document.getElementById("adminid").value;
+var password =  document.getElementById("password").value;
+var name = document.getElementById("name").value;
+var education = document.getElementById("education").value;
+var specialization = document.getElementById("specialization").value;
+
+ var rootRef = firebase.database().ref("Admin");
+rootRef.child(hospitalid+'/Hospital').set({
+  Hospital:hospital,
+  description:desc});
+rootRef.child(hospitalid+"/Workers/"+adminid).set({
+      name:name,
+    password:password,
+    education:education,
+    specialization:specialization
+}, function(error) {
+    if (error) {
+      alert("Error")
+    } else {
+      var queryString = "?centre=" + hospital + "&desc=" + desc;
+    window.location.href = "login.html" + queryString;
+      // window.location.href = "login.html?centre="+hospital&"desc="+desc;
+    }
+});
+   // var newStoreRef = storesRef.child('Admin/'+adminid).set({
+   //  name:name,
+   //  password:password,
+   //  education:education,
+   //  specialization:specialization
+   // });
+//   var newref = firebase.database().ref('Users/Admin/'+adminid).push().set({
+//     name:name,
+//     password:password,
+//     education:education,
+//     specialization:specialization
+// });
+  //
+  }
+ 
+</script>
+
+<div class="box">
+ <I> <h1>Lab Technician Details</h1></I>
+  <input type="text" id="hospitalid" name="hospitalid" placeholder="Create Hospital Id">
+
+  <input type="text" id="hospital" name="hospital" placeholder="Hospital Name">
+  <input type="text" id="desc" name="desc" placeholder="Hospital Description">
+
+  <input type="text" id="adminid" name="adminid" placeholder="Admin Id">
+  <input type="password" id="password" name="password" placeholder="Password">
+  <input type="text" id="name" name="name" placeholder="Full Name">
+  <input type="text" id="education" name="education" placeholder="Education">
+  <input type="text" id="specialization" name="specialization" placeholder="Specialization">
+ 
+ 
+  <input type="submit" name="submit" id="submit" value="submit" onclick="save();" placeholder="submit">
+ 
+</div>
+
+
+  </body>
+</html>
